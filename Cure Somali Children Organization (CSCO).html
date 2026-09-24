@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cure Somali Children Organization (CSCO)</title>
+<meta name="description" content="CSCO connects Somali children who need complex surgery unavailable in Somalia with international charitable hospitals for free treatment, and supports their families with visas, travel and follow-up care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-900: #0a3a3e;
+  --teal-800: #0d4a4f;
+  --teal-600: #146a70;
+  --green: #1f7a45;
+  --green-ink: #ffffff;
+  --saffron: #f0a634;
+  --saffron-ink: #2a1a03;
+  --paper: #f6faf9;
+  --mist: #e6f2ef;
+  --card: #ffffff;
+  --ink: #10302f;
+  --muted: #4b6664;
+  --line: #cbded9;
+  --link: #0f6a70;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --green: #4cc17f;
+    --green-ink: #06210f;
+    --paper: #0b1e20;
+    --mist: #102a2b;
+    --card: #12302f;
+    --ink: #e5f1ee;
+    --muted: #a2bbb7;
+    --line: #25494a;
+    --link: #7fd6d0;
+  }
+}
+:root[data-theme="dark"] {
+  --green: #4cc17f;
+  --green-ink: #06210f;
+  --paper: #0b1e20;
+  --mist: #102a2b;
+  --card: #12302f;
+  --ink: #e5f1ee;
+  --muted: #a2bbb7;
+  --line: #25494a;
+  --link: #7fd6d0;
+}
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 76px); scroll-behavior: smooth; height: 100%; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+img, svg { max-width: 100%; }
+a { color: var(--link); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; letter-spacing: -0.015em; margin: 0; }
+p { margin: 0 0 1em; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--saffron); color: var(--saffron-ink); padding: 10px 14px; border-radius: 8px; z-index: 100; }
+.skip:focus { left: 12px; }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand svg { width: 44px; height: 44px; flex: none; }
+.brand-name { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; line-height: 1.05; }
+.brand-sub { display: block; font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+.nav { display: none; align-items: center; gap: 26px; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.98rem; padding: 6px 0; border-bottom: 2px solid transparent; }
+.nav a:hover { border-bottom-color: var(--saffron); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 1rem/1 var(--font-body); text-decoration: none; cursor: pointer;
+  padding: 14px 24px; border-radius: 999px; border: 2px solid transparent; min-height: 48px;
+}
+.btn-green { background: var(--green); color: var(--green-ink); }
+.btn-green:hover { filter: brightness(1.08); }
+.btn-saffron { background: var(--saffron); color: var(--saffron-ink); }
+.btn-saffron:hover { filter: brightness(1.06); }
+.btn-ghost { border-color: rgba(255,255,255,0.7); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,0.12); }
+.btn-line { border-color: var(--teal-600); color: var(--link); }
+.btn-line:hover { background: var(--mist); }
+.menu-btn { display: inline-flex; align-items: center; gap: 8px; background: none; border: 2px solid var(--line); color: var(--ink); border-radius: 999px; padding: 10px 16px; font: 600 0.95rem/1 var(--font-body); min-height: 44px; cursor: pointer; }
+.mobile-nav { display: none; border-top: 1px solid var(--line); background: var(--paper); }
+.mobile-nav.open { display: block; }
+.mobile-nav a { display: block; padding: 16px 20px; color: var(--ink); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--line); }
+.mobile-nav .btn { margin: 16px 20px 20px; display: flex; }
+
+/* Hero */
+.hero { background: var(--teal-900); color: #fff; position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(60% 80% at 85% 20%, rgba(20,106,112,0.75), transparent 70%);
+  pointer-events: none;
+}
+.hero-grid { position: relative; display: grid; gap: 36px; padding: 56px 0 64px; }
+.hero h1 { font-size: clamp(2.6rem, 9vw, 4.9rem); font-weight: 800; letter-spacing: -0.03em; line-height: 0.98; max-width: 11ch; }
+.hero-lead { font-size: 1.2rem; line-height: 1.55; max-width: 34em; margin-top: 22px; color: #d7ebe8; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-note { margin-top: 18px; font-size: 0.95rem; color: #a9cfca; max-width: 34em; }
+.route { width: 100%; max-width: 520px; margin: 0 auto; }
+.route .draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.route .back { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .route .draw { stroke-dashoffset: 1; animation: draw 2.4s 0.3s ease-out forwards; }
+  .route .back { opacity: 0; animation: fade 1.2s 2.4s ease-out forwards; }
+  .route .stop-late { opacity: 0; animation: fade 0.8s 2.2s ease-out forwards; }
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fade { to { opacity: 1; } }
+
+/* Sections */
+section { padding: 72px 0; }
+.section-title { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; max-width: 18ch; }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 40em; margin-top: 18px; }
+
+/* Who we serve */
+.serve { background: var(--mist); }
+.serve-grid { display: grid; gap: 36px; }
+.serve-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.serve-list li { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.serve-list strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
+.serve-list span { color: var(--muted); }
+.consent { margin-top: 24px; font-size: 0.98rem; color: var(--muted); border-left: 4px solid var(--saffron); padding-left: 14px; max-width: 36em; }
+
+/* Programs */
+.programs { display: grid; gap: 28px 32px; margin-top: 40px; padding: 0; list-style: none; }
+.programs li { border-top: 4px solid var(--teal-600); padding-top: 18px; }
+.programs svg { width: 34px; height: 34px; color: var(--teal-600); margin-bottom: 10px; }
+:root[data-theme="dark"] .programs svg { color: #7fd6d0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .programs svg { color: #7fd6d0; } }
+.programs h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
+.programs p { color: var(--muted); margin: 0; }
+.aim { margin-top: 44px; padding: 22px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; max-width: 44em; }
+.aim p { margin: 0; }
+
+/* How it works + costs */
+.how { background: var(--teal-900); color: #fff; }
+.how .lead { color: #bfdcd8; }
+.how-grid { display: grid; gap: 44px; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li { position: relative; padding: 0 0 30px 62px; counter-increment: step; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 42px; height: 42px; border-radius: 50%; background: var(--saffron); color: var(--saffron-ink);
+  display: grid; place-items: center; font: 800 1.15rem/1 var(--font-display);
+}
+.steps li::after { content: ""; position: absolute; left: 20px; top: 46px; bottom: 6px; width: 2px; background: rgba(255,255,255,0.22); }
+.steps li:last-child::after { display: none; }
+.steps h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+.steps p { margin: 0; color: #cfe5e2; }
+.costs { margin-top: 8px; background: var(--paper); color: var(--ink); border-radius: 18px; padding: 28px 24px; }
+.costs h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+.costs > p { color: var(--muted); }
+.cost-row { display: grid; gap: 4px; padding: 18px 0; border-top: 1px solid var(--line); }
+.cost-row b { font-family: var(--font-display); font-size: 1.05rem; }
+.cost-row .free { color: var(--green); font-weight: 700; }
+.cost-row span { color: var(--muted); }
+
+/* Involve */
+.involve-grid { display: grid; gap: 0; margin-top: 40px; border-top: 1px solid var(--line); }
+.involve-item { display: grid; gap: 10px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.involve-item h3 { font-size: 1.45rem; font-weight: 700; }
+.involve-item p { color: var(--muted); margin: 0; }
+.involve-item a.more { font-weight: 600; }
+
+/* Donate */
+.donate { background: var(--mist); }
+.donate-grid { display: grid; gap: 32px; }
+.covers { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.covers li { display: flex; gap: 12px; align-items: flex-start; }
+.covers svg { width: 24px; height: 24px; flex: none; margin-top: 3px; color: var(--green); }
+.donate-box { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px 24px; }
+.donate-box h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+.donate-box .btn { margin-top: 8px; }
+.small { font-size: 0.95rem; color: var(--muted); margin-top: 14px; margin-bottom: 0; }
+
+/* Updates + contact */
+.updates-empty { border: 2px dashed var(--line); border-radius: 16px; padding: 26px 24px; margin-top: 28px; max-width: 44em; }
+.updates-empty p { margin: 0 0 14px; color: var(--muted); }
+.contact-grid { display: grid; gap: 28px; margin-top: 8px; }
+.contact-card p { margin: 0 0 6px; }
+.contact-card .big { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; overflow-wrap: anywhere; }
+
+/* Footer */
+footer { background: var(--teal-900); color: #cfe5e2; padding: 44px 0 36px; }
+.foot { display: grid; gap: 24px; }
+footer .brand { color: #fff; }
+footer .brand-sub { color: #a9cfca; }
+footer a { color: #fff; }
+.legal { border-top: 1px solid rgba(255,255,255,0.18); margin-top: 28px; padding-top: 18px; font-size: 0.92rem; color: #a9cfca; }
+
+@media (min-width: 760px) {
+  .wrap { padding: 0 32px; }
+  .programs { grid-template-columns: repeat(2, 1fr); }
+  .involve-grid { grid-template-columns: repeat(2, 1fr); column-gap: 48px; }
+  .serve-grid { grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  .foot { grid-template-columns: 1.4fr 1fr; align-items: start; }
+}
+@media (min-width: 1024px) {
+  .nav { display: flex; }
+  .menu-btn { display: none; }
+  .mobile-nav, .mobile-nav.open { display: none; }
+  .hero-grid { grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 48px; padding: 84px 0 92px; }
+  .programs { grid-template-columns: repeat(3, 1fr); }
+  .how-grid { grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .donate-grid { grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+  section { padding: 96px 0; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Cure Somali Children Organization, home">
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <circle cx="24" cy="24" r="24" fill="#0d4a4f"/>
+        <path d="M24 35s-9.5-5.9-12.4-12.1C9.6 18.7 12.3 14 16.9 14c2.7 0 5.1 1.6 7.1 4.4C26 15.6 28.4 14 31.1 14c4.6 0 7.3 4.7 5.3 8.9C33.5 29.1 24 35 24 35z" fill="#ffffff"/>
+        <path d="M24 17c0-4 2.4-6.6 6.4-7 .1 4-2.4 6.7-6.4 7z" fill="#f0a634"/>
+        <path d="M24 17c0-3-1.8-5-5-5.4-.1 3 1.8 5.1 5 5.4z" fill="#4cc17f"/>
+      </svg>
+      <span><span class="brand-name">Cure Somali Children</span><span class="brand-sub">Organization (CSCO)</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#top">About Us</a>
+      <a href="#work">Our work</a>
+      <a href="#involve">Get involved</a>
+      <a href="#updates">Blog</a>
+      <a href="#contact">Contact Us</a>
+      <a class="btn btn-green" href="#donate">Donate</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+      Menu
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#top">About Us</a>
+    <a href="#work">Our work</a>
+    <a href="#involve">Get involved</a>
+    <a href="#updates">Blog</a>
+    <a href="#contact">Contact Us</a>
+    <a class="btn btn-green" href="#donate">Donate</a>
+  </nav>
+</header>
+
+<main id="main">
+<div id="top"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Giving new life to Somali children.</h1>
+      <p class="hero-lead">Many Somali children need surgery that can't be done in Somalia, and their families, especially poor and displaced families, can't afford to seek it abroad. We connect them with international charitable hospitals that treat them for free.</p>
+      <div class="hero-actions">
+        <a class="btn btn-saffron" href="#donate">Sponsor a child's journey</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <p class="hero-note">Founded in 2026 in Mogadishu by Somali healthcare professionals, humanitarian workers and scholars.</p>
+    </div>
+
+    <svg class="route" viewBox="0 0 420 400" role="img" aria-labelledby="routeTitle routeDesc">
+      <title id="routeTitle">A child's journey</title>
+      <desc id="routeDesc">A route from Mogadishu to a partner charitable hospital for free surgery, and back home with a care plan.</desc>
+      <circle cx="210" cy="200" r="178" fill="rgba(255,255,255,0.05)"/>
+      <circle cx="210" cy="200" r="118" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1.5"/>
+      <!-- return path -->
+      <path class="back" d="M330 96 C 402 220, 250 338, 88 306" fill="none" stroke="#7fd6d0" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
+      <!-- outbound path -->
+      <path class="draw" pathLength="1" d="M88 306 C 78 150, 230 58, 322 92" fill="none" stroke="#f0a634" stroke-width="5" stroke-linecap="round"/>
+      <!-- start: Mogadishu -->
+      <circle cx="88" cy="306" r="17" fill="#ffffff"/>
+      <circle cx="88" cy="306" r="7" fill="#f0a634"/>
+      <text x="36" y="348" text-anchor="start" fill="#ffffff" font-family="Bricolage Grotesque, Segoe UI, system-ui, sans-serif" font-weight="800" font-size="19">Mogadishu</text>
+      <text x="36" y="368" text-anchor="start" fill="#a9cfca" font-family="Figtree, Segoe UI, system-ui, sans-serif" font-size="13">Screening and case files</text>
+      <!-- end: partner hospital -->
+      <g class="stop-late">
+        <circle cx="330" cy="94" r="24" fill="#ffffff"/>
+        <path d="M330 82v24M318 94h24" stroke="#1f7a45" stroke-width="7" stroke-linecap="round"/>
+        <text x="364" y="50" text-anchor="end" fill="#ffffff" font-family="Bricolage Grotesque, Segoe UI, system-ui, sans-serif" font-weight="800" font-size="19">Partner hospital</text>
+        <text x="296" y="150" text-anchor="middle" fill="#a9cfca" font-family="Figtree, Segoe UI, system-ui, sans-serif" font-size="13">Free surgery</text>
+      </g>
+      <!-- pills -->
+      <g font-family="Figtree, Segoe UI, system-ui, sans-serif" font-size="13" font-weight="600">
+        <rect x="46" y="175" width="142" height="30" rx="15" fill="#0a3a3e" stroke="#f0a634" stroke-width="1.5"/>
+        <text x="117" y="195" text-anchor="middle" fill="#ffffff">Visa and travel</text>
+        <rect x="200" y="250" width="180" height="30" rx="15" fill="#0a3a3e" stroke="#7fd6d0" stroke-width="1.5"/>
+        <text x="290" y="270" text-anchor="middle" fill="#ffffff">Home with a care plan</text>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<!-- WHO WE SERVE -->
+<section class="serve" id="serve">
+  <div class="wrap serve-grid">
+    <div>
+      <h2 class="section-title">Children who can't be treated at home.</h2>
+      <p class="lead">Some conditions need surgeons and equipment that Somalia doesn't yet have. For the families of these children, going abroad is out of reach without help.</p>
+      <p class="consent">We share a child's story only with the family's consent.</p>
+    </div>
+    <ul class="serve-list">
+      <li><strong>Poor families</strong><span>Households that cannot pay for specialist care, at home or abroad.</span></li>
+      <li><strong>Displaced families (IDPs)</strong><span>Families uprooted from their homes, with little income and few options for their sick child.</span></li>
+      <li><strong>Children with complex conditions</strong><span>Heart, brain, liver, kidney, cancer and bone conditions that need subspecialist surgery.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section id="work">
+  <div class="wrap">
+    <h2 class="section-title">Six surgical specialties, where local care is hardest to find.</h2>
+    <p class="lead">We focus on complex pediatric surgery. Our partner hospitals perform the operations. We prepare the case, arrange the journey and follow the child home.</p>
+    <ul class="programs">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.4C1.2 8.3 3.4 5 6.9 5c2 0 3.8 1.2 5.1 3.2C13.3 6.2 15.100 5 17.100 5c3.500 0 5.700 3.300 4.400 6.600C19.500 16.400 12 21 12 21z"/></svg>
+        <h3>Cardiac surgery</h3>
+        <p>Congenital heart defects such as Tetralogy of Fallot and septal defects, and valve repair.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 4 3 3 0 0 0 5 2V6a2 2 0 0 0-2-2zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 4 3 3 0 0 1-5 2V6a2 2 0 0 1 2-2z"/></svg>
+        <h3>Neurosurgery</h3>
+        <p>Hydrocephalus, spina bifida, and brain and spinal cord tumors.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 10c0-3 3-5 8-5 5 0 10 2 10 6 0 4-4 8-9 8-2 0-3-1-4-2-3 0-5-3-5-7z"/><circle cx="15" cy="12" r="1.600"/></svg>
+        <h3>Hepatobiliary surgery</h3>
+        <p>Biliary atresia (Kasai procedure), congenital liver lesions and complex digestive reconstruction.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c-3.500-.500-7 1.500-8 6s1 9 5 11c2.500 1 4.500-.5 4-3-.3-1.500-1.500-2.200-1.500-4s1.800-2.500 2-4.500C15.700 6 15.300 4 14 3z"/></svg>
+        <h3>Urological surgery</h3>
+        <p>Bladder exstrophy, severe hypospadias and congenital kidney and urinary tract conditions.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3a4.500 4.500 0 0 0-4.500 4.500c0 4.500 4.500 7.500 4.500 7.500s4.500-3 4.500-7.500A4.500 4.500 0 0 0 12 3z"/><path d="M9.500 14 6.500 21l4-2 1.500 3M14.500 14l3 7-4-2"/></svg>
+        <h3>Pediatric oncology</h3>
+        <p>Surgery for solid tumors such as Wilms' tumor and neuroblastoma, with cancer treatment at partner centers.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8.500 8.500 15.500 15.500"/><circle cx="6.300" cy="8.700" r="2.200"/><circle cx="8.700" cy="6.300" r="2.200"/><circle cx="15.300" cy="17.700" r="2.200"/><circle cx="17.700" cy="15.300" r="2.200"/></svg>
+        <h3>Orthopedic and trauma surgery</h3>
+        <p>Limb deformities, severe fractures, bone infections and injuries that need specialist care.</p>
+      </li>
+    </ul>
+    <div class="aim"><p>Our aim is to open pediatric screening and referral centers in Mogadishu and every Federal Member State, so children can be assessed close to home.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap how-grid">
+    <div>
+      <h2 class="section-title">From a clinic in Somalia to an operating room abroad, and back.</h2>
+      <p class="lead">Every child follows the same five steps, so families always know what happens next.</p>
+      <ol class="steps" style="margin-top:36px">
+        <li><h3>Screening in Somalia</h3><p>Our doctors evaluate the child and prepare verified diagnostic files, imaging and lab reports.</p></li>
+        <li><h3>International case review</h3><p>Volunteer specialists and partner charitable hospitals confirm that surgery is right for the child and choose where.</p></li>
+        <li><h3>Visas and travel</h3><p>We help with visas, travel documents, flights, emergency transport and accommodation for the child and one parent or guardian.</p></li>
+        <li><h3>Surgery at a partner hospital</h3><p>The operation is done at a charitable hospital, with surgery and medication provided free.</p></li>
+        <li><h3>Home, with follow-up</h3><p>The child returns with a rehabilitation plan, and our doctors coordinate follow-up in Somalia with the treating hospital.</p></li>
+      </ol>
+    </div>
+    <div class="costs">
+      <h3>Who pays for what</h3>
+      <p>Families deserve a clear answer before they decide.</p>
+      <div class="cost-row"><b>Surgery, medication and hospital care</b><span class="free">Free at our partner charitable hospitals</span><span>Subject to each hospital's charity-care terms.</span></div>
+      <div class="cost-row"><b>Visas, flights and accommodation</b><span>Covered by partners or sponsors where available. Otherwise by the family.</span><span>We help families look for sponsorship.</span></div>
+      <div class="cost-row"><b>Screening and follow-up in Somalia</b><span>Coordinated by CSCO doctors.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="involve">
+  <div class="wrap">
+    <h2 class="section-title">Every journey takes many hands.</h2>
+    <div class="involve-grid">
+      <div class="involve-item">
+        <h3>Hospitals and medical foundations</h3>
+        <p>Open a place for a child who can't be treated in Somalia. We send a complete, verified case file.</p>
+        <a class="more" href="mailto:info@curesomalichildren.org?subject=Partnership%20with%20CSCO">Become a partner</a>
+      </div>
+      <div class="involve-item">
+        <h3>Volunteer specialists</h3>
+        <p>Join our international advisory panel and review cases in your specialty.</p>
+        <a class="more" href="mailto:info@curesomalichildren.org?subject=Volunteer%20specialist">Volunteer your expertise</a>
+      </div>
+      <div class="involve-item">
+        <h3>Airlines, embassies and businesses</h3>
+        <p>Help a child and guardian travel quickly with visa support, discounted tickets or sponsored journeys.</p>
+        <a class="more" href="mailto:info@curesomalichildren.org?subject=Travel%20and%20visa%20support">Offer support</a>
+      </div>
+      <div class="involve-item">
+        <h3>Diaspora and community</h3>
+        <p>Sponsor a journey, share our work, and help us reach families who don't yet know this help exists.</p>
+        <a class="more" href="mailto:info@curesomalichildren.org?subject=Supporting%20CSCO">Stand with us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="donate" id="donate">
+  <div class="wrap donate-grid">
+    <div>
+      <h2 class="section-title">Sponsor a child's journey.</h2>
+      <p class="lead">Surgery is provided free by our partners. Your gift helps a family get there and get home.</p>
+      <ul class="covers" style="margin-top:26px">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.500 4.500 4.500L19 7.500"/></svg><span>Flights and emergency transport for a child and a parent or guardian</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.500 4.500 4.500L19 7.500"/></svg><span>Visa and travel document fees</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.500 4.500 4.500L19 7.500"/></svg><span>Accommodation near the hospital during treatment</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.500 4.500 4.500L19 7.500"/></svg><span>Screening, coordination and follow-up care in Somalia</span></li>
+      </ul>
+    </div>
+    <div class="donate-box">
+      <h3>Give by email for now</h3>
+      <p>Our secure online giving page is being set up. Write to us and we will send you the details for giving by bank transfer or through a partner in your country.</p>
+      <a class="btn btn-green" href="mailto:info@curesomalichildren.org?subject=I%20want%20to%20sponsor%20a%20child%27s%20journey">Email us to give</a>
+      <p class="small">We will share how every gift is used and report back after each case.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section id="updates">
+  <div class="wrap">
+    <h2 class="section-title">Latest updates</h2>
+    <div class="updates-empty">
+      <p>Our first case stories and news will appear here as soon as they are ready. Want to hear first?</p>
+      <a class="btn btn-line" href="mailto:info@curesomalichildren.org?subject=Send%20me%20CSCO%20updates">Get updates by email</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="section-title">Contact us</h2>
+    <div class="contact-grid" style="margin-top:28px">
+      <div class="contact-card">
+        <p>Email</p>
+        <a class="big" href="mailto:info@curesomalichildren.org">info@curesomalichildren.org</a>
+      </div>
+      <div class="contact-card">
+        <p>Headquarters</p>
+        <span class="big">Al-Maka Al-Mukarama Road,<br>Opposite KM4 Roundabout<br>Mogadishu, Somalia</span>
+        <p class="small" style="margin-top:8px">Clinical intake and screening in Mogadishu and the Federal Member States.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="24" fill="#146a70"/>
+            <path d="M24 35s-9.500-5.900-12.400-12.100C9.600 18.700 12.300 14 16.900 14c2.700 0 5.100 1.600 7.100 4.400C26 15.600 28.400 14 31.100 14c4.600 0 7.300 4.700 5.300 8.900C33.500 29.100 24 35 24 35z" fill="#ffffff"/>
+            <path d="M24 17c0-4 2.400-6.600 6.400-7 .1 4-2.400 6.700-6.400 7z" fill="#f0a634"/>
+            <path d="M24 17c0-3-1.800-5-5-5.400-.1 3 1.800 5.100 5 5.400z" fill="#4cc17f"/>
+          </svg>
+          <span><span class="brand-name">Cure Somali Children</span><span class="brand-sub">Organization (CSCO)</span></span>
+        </a>
+        <p style="margin-top:16px;max-width:30em">A non-profit humanitarian organization connecting Somali children with free, life-saving surgery at international charitable hospitals.</p>
+      </div>
+      <div>
+        <p><a href="#work">Our work</a><br><a href="#how">How it works</a><br><a href="#involve">Get involved</a><br><a href="#donate">Donate</a></p>
+        <p><a href="mailto:info@curesomalichildren.org">info@curesomalichildren.org</a></p>
+      </div>
+    </div>
+    <div class="legal">&copy; 2026 Cure Somali Children Organization (CSCO). Mogadishu, Somalia.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mobileNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
